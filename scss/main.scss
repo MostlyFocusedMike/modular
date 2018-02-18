@@ -1,0 +1,237 @@
+$bor: .1rem solid black;
+$main-b-img: "../images/main-b-img/skyline-bridge.jpg";
+
+%compat-flex {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  align-items: center;
+}
+%center-flex {
+  @extend %compat-flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+%between-flex {
+  @extend %compat-flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+%around-flex {
+  @extend %compat-flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+%even-flex {
+  @extend %compat-flex;
+  -webkit-justify-content: space-evenly;
+  justify-content: space-evenly;
+}
+
+@mixin grad($col0, $col1, $col2) {
+    background: $col0; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($col1, $col2); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($col1, $col2); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($col1, $col2);
+    background: linear-gradient($col1, $col2);
+}
+
+
+//MAIN  ////////////////////////////////////////////////////////////
+html, body {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0; 
+  height: 100%;
+  background: #222;
+}
+main { // takes care of the background image
+  background: #222;
+  background-image: url($main-b-img);
+  background-position: center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+header {
+  width: 100%;
+  @extend %between-flex;
+  @include grad(#222, #304040,#1E2929);
+  position: fixed;
+  z-index: 10;
+  -webkit-font-smoothing: antialiased; // fixes safari bolding glitch with aliasing 
+  .nav-title-link {
+    display: block;
+    text-decoration: none;
+    .nav-title-base {
+      width: auto;
+      display: block;
+      font-size: 1rem;
+      padding-left: 1rem;
+    }
+    .nav-title-style {
+      color: white;
+      font-weight: 400;
+      transform: skewX(-10deg);
+      transition: transform .25s, color .25s;
+    &:hover {
+        color: #DEDEDE;
+        transform: skewX(0deg);
+      }
+    }
+  }
+  nav {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    @extend %around-flex;
+    //NOTE: do not add position: relative, it cause issues with animation
+    .nav-page-base, .nav-logo-base {
+      padding: 0 1.5rem;
+      text-decoration: none;
+    }
+    .nav-page-style {
+      color: #FFF;
+      border-right: .2rem solid white;
+      -webkit-transform: translateZ(0) scale(1.0, 1.0) skewX(-10deg); // fixes chrome aliasing
+      -webkit-backface-visibility: hidden; // this and prev line force chrom into 2d tranform
+      -webkit-font-smoothing: antialiased; // fixes safari bolding glitch with aliasing 
+      transform:  translateZ(0) scale(1.0, 1.0) skewX(-10deg);
+      transition: transform .25s, color .25s, border-right .25s;
+      &:hover {
+        color: #EEE;
+        transform: skewX(-1deg); // it's 1 not 0 to avoid resizing glitches
+        border-right: .2rem solid #DDD;
+      }
+    }
+    .nav-logo-base {
+      img {
+        height: 1.9rem;
+        width: 1.9rem;
+        display: block;
+      }
+    }
+  }
+}
+main {
+  height: auto;
+  min-height:100%;
+  width: 100%;
+  @extend %even-flex;
+  .home-feat-img-base {
+    width: 25rem;
+    margin: 3rem;
+    transform: rotate(-5deg);
+    box-shadow: .4rem .4rem 1.5rem rgba(0,0,0,.5);
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+  #home-holder {
+    padding: 1rem 0 0;
+    height: 28rem;
+    width: 350px;
+    margin: 1rem 0;
+    @extend %center-flex;
+    .home-board-base, .home-buttons-base {
+      width: 100%;
+      background: #111;
+      background: rgba(0,0,0,0.8);
+    }
+    .home-board-base {
+      -webkit-align-self: flex-start;
+      align-self: flex-start;
+      .home-headline-0-base, .home-headline-1-base, .home-subtitle-base, .home-quote-base {
+        font-family: Impact, Helvetica, sans-serif;
+        color: white;
+        text-align: center;
+        margin: 0;
+      }
+      .home-headline-0-base {
+        font-size: 5.5rem;
+        margin: .5rem auto -.5rem;
+      }
+      .home-headline-1-base {
+        font-size: 4rem;
+        transform: scale(1,1.4);
+      }
+      .home-subtitle-base, .home-quote-base {
+        font-family: Helvetica, sans-serif;
+        font-size: 2.25rem;
+        font-style: italic;
+        font-weight: 400;
+        margin: 1rem 0;
+      }
+      .home-quote-base {
+        font-weight: 100;
+        font-size: 1.5rem;
+        width: 80%;
+        margin: 1rem auto;
+      } 
+      hr {
+        width: 85%;
+      }
+    }
+    .home-buttons-base {
+      height: 4rem;
+      width: 90%;
+      margin: 0 auto;
+      -webkit-align-self: flex-end;
+      align-self: flex-end;
+      @extend %even-flex;
+      .home-button-base {
+        width: 8rem;
+        height: 2rem;
+        color: white;
+        font-weight: 100;
+        font-size: 1rem;
+        text-decoration: none;
+        border: none;
+        @include grad(#359061,#359061, #184B2F);
+      }
+    }
+  }
+}
+
+#about-page { //main#about-page, so see main for styling, this is just here for readability
+  .about-bg {
+    width: 100%;
+    margin: 4rem 0;
+    background: rgba(255,255,255,.9);
+    .about-holder-base {
+      margin: 1rem auto;
+      width: 90%;
+      max-width: 50rem;
+      padding-bottom: 1rem;
+      .heading-holder {
+        @extend %compat-flex;
+        -webkit-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+        width: 100%;
+        h1 {
+          display: block;
+          padding: 0 .5rem;
+          font-style: italic;;
+          font-weight: 100;
+          color: #111;
+          border-bottom: .2rem solid #111;
+          span {
+            display: inline-block;
+          }
+        }
+      }
+      .para-base {
+        color: #000;
+        font-size: 1.2rem;
+        font-weight: 100;
+        text-align: justify;
+      }
+    }
+  }
+}

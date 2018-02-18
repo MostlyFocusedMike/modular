@@ -1,0 +1,194 @@
+main #home-holder, header, header nav, main, main #home-holder .home-buttons-base, #about-page .about-bg .about-holder-base .heading-holder {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  align-items: center; }
+
+main #home-holder {
+  -webkit-justify-content: center;
+  justify-content: center; }
+
+header {
+  -webkit-justify-content: space-between;
+  justify-content: space-between; }
+
+header nav {
+  -webkit-justify-content: space-around;
+  justify-content: space-around; }
+
+main, main #home-holder .home-buttons-base {
+  -webkit-justify-content: space-evenly;
+  justify-content: space-evenly; }
+
+html, body {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #222; }
+
+main {
+  background: #222;
+  background-image: url("../images/main-b-img/skyline-bridge.jpg");
+  background-position: center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+header {
+  width: 100%;
+  background: #222;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#304040, #1E2929);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#304040, #1E2929);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#304040, #1E2929);
+  background: linear-gradient(#304040, #1E2929);
+  position: fixed;
+  z-index: 10;
+  -webkit-font-smoothing: antialiased; }
+  header .nav-title-link {
+    display: block;
+    text-decoration: none; }
+    header .nav-title-link .nav-title-base {
+      width: auto;
+      display: block;
+      font-size: 1rem;
+      padding-left: 1rem; }
+    header .nav-title-link .nav-title-style {
+      color: white;
+      font-weight: 400;
+      transform: skewX(-10deg);
+      transition: transform .25s, color .25s; }
+      header .nav-title-link .nav-title-style:hover {
+        color: #DEDEDE;
+        transform: skewX(0deg); }
+  header nav {
+    width: auto;
+    margin: 0;
+    padding: 0; }
+    header nav .nav-page-base, header nav .nav-logo-base {
+      padding: 0 1.5rem;
+      text-decoration: none; }
+    header nav .nav-page-style {
+      color: #FFF;
+      border-right: .2rem solid white;
+      -webkit-transform: translateZ(0) scale(1, 1) skewX(-10deg);
+      -webkit-backface-visibility: hidden;
+      -webkit-font-smoothing: antialiased;
+      transform: translateZ(0) scale(1, 1) skewX(-10deg);
+      transition: transform .25s, color .25s, border-right .25s; }
+      header nav .nav-page-style:hover {
+        color: #EEE;
+        transform: skewX(-1deg);
+        border-right: .2rem solid #DDD; }
+    header nav .nav-logo-base img {
+      height: 1.9rem;
+      width: 1.9rem;
+      display: block; }
+
+main {
+  height: auto;
+  min-height: 100%;
+  width: 100%; }
+  main .home-feat-img-base {
+    width: 25rem;
+    margin: 3rem;
+    transform: rotate(-5deg);
+    box-shadow: 0.4rem 0.4rem 1.5rem rgba(0, 0, 0, 0.5); }
+    main .home-feat-img-base img {
+      display: block;
+      width: 100%; }
+  main #home-holder {
+    padding: 1rem 0 0;
+    height: 28rem;
+    width: 350px;
+    margin: 1rem 0; }
+    main #home-holder .home-board-base, main #home-holder .home-buttons-base {
+      width: 100%;
+      background: #111;
+      background: rgba(0, 0, 0, 0.8); }
+    main #home-holder .home-board-base {
+      -webkit-align-self: flex-start;
+      align-self: flex-start; }
+      main #home-holder .home-board-base .home-headline-0-base, main #home-holder .home-board-base .home-headline-1-base, main #home-holder .home-board-base .home-subtitle-base, main #home-holder .home-board-base .home-quote-base {
+        font-family: Impact, Helvetica, sans-serif;
+        color: white;
+        text-align: center;
+        margin: 0; }
+      main #home-holder .home-board-base .home-headline-0-base {
+        font-size: 5.5rem;
+        margin: .5rem auto -.5rem; }
+      main #home-holder .home-board-base .home-headline-1-base {
+        font-size: 4rem;
+        transform: scale(1, 1.4); }
+      main #home-holder .home-board-base .home-subtitle-base, main #home-holder .home-board-base .home-quote-base {
+        font-family: Helvetica, sans-serif;
+        font-size: 2.25rem;
+        font-style: italic;
+        font-weight: 400;
+        margin: 1rem 0; }
+      main #home-holder .home-board-base .home-quote-base {
+        font-weight: 100;
+        font-size: 1.5rem;
+        width: 80%;
+        margin: 1rem auto; }
+      main #home-holder .home-board-base hr {
+        width: 85%; }
+    main #home-holder .home-buttons-base {
+      height: 4rem;
+      width: 90%;
+      margin: 0 auto;
+      -webkit-align-self: flex-end;
+      align-self: flex-end; }
+      main #home-holder .home-buttons-base .home-button-base {
+        width: 8rem;
+        height: 2rem;
+        color: white;
+        font-weight: 100;
+        font-size: 1rem;
+        text-decoration: none;
+        border: none;
+        background: #359061;
+        /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#359061, #184B2F);
+        /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#359061, #184B2F);
+        /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#359061, #184B2F);
+        background: linear-gradient(#359061, #184B2F); }
+
+#about-page .about-bg {
+  width: 100%;
+  margin: 4rem 0;
+  background: rgba(255, 255, 255, 0.9); }
+  #about-page .about-bg .about-holder-base {
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 50rem;
+    padding-bottom: 1rem; }
+    #about-page .about-bg .about-holder-base .heading-holder {
+      -webkit-flex-direction: row-reverse;
+      flex-direction: row-reverse;
+      width: 100%; }
+      #about-page .about-bg .about-holder-base .heading-holder h1 {
+        display: block;
+        padding: 0 .5rem;
+        font-style: italic;
+        font-weight: 100;
+        color: #111;
+        border-bottom: .2rem solid #111; }
+        #about-page .about-bg .about-holder-base .heading-holder h1 span {
+          display: inline-block; }
+    #about-page .about-bg .about-holder-base .para-base {
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: 100;
+      text-align: justify; }
+
+/*# sourceMappingURL=styles.css.map */
