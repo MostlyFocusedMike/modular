@@ -86,5 +86,45 @@ class homepage {
   }
 }
 
+class basic_page {
+  protected $main_text = ''; 
+  protected $page_type;
+  protected $page_title;
+  function __construct($page_type,$page_title) {		
+    $this->page_type = $page_type;
+    $this->page_title = $page_title;
+  }
+  function set_main_text_no_sub_head($text){
+    foreach($text as $section) {
+      $this->main_text .= '
+        <p class="para-base para-style">'
+        . $section . 
+        '</p>';
+    }
+  }
+  function set_main_text_sub_head($text){
+    foreach($text as $section) {
+      $this->main_text .= '
+        <h2 class="sub-head-base sub-head-style">'
+        . $section[0] . 
+        '</h2>
+        <p class="para-base para-style">'
+        . $section[1] . 
+        '</p>';
+    }
+  }
+  function show_page(){
+    echo '
+      <div class="' . $this->page_type . '-bg std-page-bg">
+        <div class="std-holder ' . $this->page_type . '-holder-base ' . $this->page_type . '-holder-style">
+          <div class="heading-holder">
+            <h1>' . $this->page_title . '</h1>      
+          </div>'
+          . $this->main_text . 
+        '</div>
+      </div>';
+  }
+}
+
 ?>
 

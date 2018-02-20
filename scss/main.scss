@@ -56,6 +56,10 @@ main { // takes care of the background image
   -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  @extend %even-flex;
 }
 
 header {
@@ -119,10 +123,6 @@ header {
   }
 }
 main {
-  height: auto;
-  min-height:100%;
-  width: 100%;
-  @extend %even-flex;
   .home-feat-img-base {
     width: 25rem;
     margin: 3rem;
@@ -199,39 +199,51 @@ main {
   }
 }
 
-#about-page { //main#about-page, so see main for styling, this is just here for readability
-  .about-bg {
-    width: 100%;
-    margin: 4rem 0;
-    background: rgba(255,255,255,.9);
-    .about-holder-base {
-      margin: 1rem auto;
-      width: 90%;
-      max-width: 50rem;
-      padding-bottom: 1rem;
-      .heading-holder {
-        @extend %compat-flex;
-        -webkit-flex-direction: row-reverse;
-        flex-direction: row-reverse;
-        width: 100%;
-        h1 {
-          display: block;
-          padding: 0 .5rem;
-          font-style: italic;;
-          font-weight: 100;
-          color: #111;
-          border-bottom: .2rem solid #111;
-          span {
-            display: inline-block;
-          }
+.std-page-bg {
+  width: 100%;
+  margin: 4rem 0;
+  background: rgba(255,255,255,.9);
+  .std-holder {
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 50rem;
+    padding-bottom: 1rem;
+    .heading-holder {
+      @extend %compat-flex;
+      -webkit-flex-direction: row-reverse;
+      flex-direction: row-reverse;
+      width: 100%;
+      h1 {
+        display: block;
+        padding: 0 .5rem;
+        font-style: italic;;
+        font-weight: 100;
+        color: #111;
+        border-bottom: .2rem solid #111;
+        span {
+          display: inline-block;
         }
       }
-      .para-base {
-        color: #000;
-        font-size: 1.2rem;
-        font-weight: 100;
-        text-align: justify;
-      }
+    }
+    .para-base {
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: 100;
+      text-align: justify;
     }
   }
+}
+
+#about-page {
+padding: 1rem 0;
+  -webkit-align-items: flex-start;
+  -webkit-align-items: -webkit-flex-start;
+  align-items: flex-start;
+
+}
+#faq-page {
+  padding: 1rem 0;
+  -webkit-align-items: flex-start;
+  -webkit-align-items: -webkit-flex-start;
+  align-items: flex-start;
 }
