@@ -1,7 +1,7 @@
 <?php
 class nav_bar {
   protected $nav_pages = array('home','about','reviews','FAQ','sets','pics','contact');
-  protected $nav_logos = array("twitter"=>"https://twitter.com");
+  protected $nav_logos = array("twitter"=>"https://twitter.com", "fb"=>"https://facebook.com");
   protected $site_title = 'Anthony Mustachio Comedy';
   protected $title_before = true; // does the title come before or after the nav
   function setNavBar(){
@@ -11,18 +11,21 @@ class nav_bar {
     if ($this->title_before) {
       echo $title_classed;
     }
-    echo '<nav>';
+    echo '<nav id="nav" class="hidden">';
+    echo '<a href="javascript:void(0);" id="menu-icon">&equiv;</a>';
+    echo '<div id="nav-items">';
     foreach($this->nav_pages as $nav_item) {
       echo '<a href="' .  $nav_item . '" class="nav-page-base nav-page-style">'
-          . ucfirst($nav_item) . ' </a><div></div>';
+          . ucfirst($nav_item) . ' </a>'; //<div></div>
     }
+    echo '<div id="social-section">';
     foreach($this->nav_logos as $nav_logo=>$logo_link) {
       echo '
         <a href="' . $logo_link . '" class="nav-logo-base nav-logo-style">
           <img src="images/soc-logos/' . $nav_logo . '.png" alt="' . $nav_logo . '" />
         </a>';
     }
-    echo "</nav>";    
+    echo "</div></div></nav>";    
     if (!$this->title_before) {
       echo $title_classed;
     }

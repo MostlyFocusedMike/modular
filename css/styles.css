@@ -1,4 +1,4 @@
-main #home-holder, header, header nav, main, main #home-holder .home-buttons-base, .std-page-bg .std-holder .heading-holder {
+header nav #nav-items #social-section, main #home-holder, header, header nav #nav-items, main, main #home-holder .home-buttons-base, .std-page-bg .std-holder .heading-holder {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -6,7 +6,7 @@ main #home-holder, header, header nav, main, main #home-holder .home-buttons-bas
   -webkit-align-items: center;
   align-items: center; }
 
-main #home-holder {
+header nav #nav-items #social-section, main #home-holder {
   -webkit-justify-content: center;
   justify-content: center; }
 
@@ -14,7 +14,7 @@ header {
   -webkit-justify-content: space-between;
   justify-content: space-between; }
 
-header nav {
+header nav #nav-items {
   -webkit-justify-content: space-around;
   justify-content: space-around; }
 
@@ -27,7 +27,9 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: #222; }
+  background: #222;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 main {
   background: #222;
@@ -75,10 +77,12 @@ header {
     width: auto;
     margin: 0;
     padding: 0; }
-    header nav .nav-page-base, header nav .nav-logo-base {
+    header nav #menu-icon {
+      display: none; }
+    header nav #nav-items .nav-page-base, header nav #nav-items .nav-logo-base {
       padding: 0 1.5rem;
       text-decoration: none; }
-    header nav .nav-page-style {
+    header nav #nav-items .nav-page-style {
       color: #FFF;
       border-right: .2rem solid white;
       -webkit-transform: translateZ(0) scale(1, 1) skewX(-10deg);
@@ -86,14 +90,25 @@ header {
       -webkit-font-smoothing: antialiased;
       transform: translateZ(0) scale(1, 1) skewX(-10deg);
       transition: transform .25s, color .25s, border-right .25s; }
-      header nav .nav-page-style:hover {
+      header nav #nav-items .nav-page-style:hover {
         color: #EEE;
         transform: skewX(-1deg);
         border-right: .2rem solid #DDD; }
-    header nav .nav-logo-base img {
-      height: 1.9rem;
-      width: 1.9rem;
-      display: block; }
+    header nav #nav-items #social-section {
+      margin: 0 1rem 0; }
+      header nav #nav-items #social-section a {
+        display: block;
+        margin: 0;
+        padding: 0; }
+        header nav #nav-items #social-section a img {
+          display: block;
+          height: 1.5rem;
+          width: 1.5rem;
+          margin: 0 .5rem;
+          padding: 0; }
+
+#header-buffer {
+  height: 2rem; }
 
 main .home-feat-img-base {
   width: 25rem;
@@ -111,7 +126,7 @@ main #home-holder {
   main #home-holder .home-board-base, main #home-holder .home-buttons-base {
     width: 100%;
     background: #111;
-    background: rgba(0, 0, 0, 0.8); }
+    background: rgba(0, 0, 0, 0.9); }
   main #home-holder .home-board-base {
     -webkit-align-self: flex-start;
     align-self: flex-start; }
@@ -124,13 +139,13 @@ main #home-holder {
       font-size: 5.5rem;
       margin: .5rem auto -.5rem; }
     main #home-holder .home-board-base .home-headline-1-base {
-      font-size: 4rem;
+      font-size: 3.6rem;
       transform: scale(1, 1.4); }
     main #home-holder .home-board-base .home-subtitle-base, main #home-holder .home-board-base .home-quote-base {
       font-family: Helvetica, sans-serif;
       font-size: 2.25rem;
       font-style: italic;
-      font-weight: 400;
+      font-weight: 100;
       margin: 1rem 0; }
     main #home-holder .home-board-base .home-quote-base {
       font-weight: 100;
@@ -142,7 +157,7 @@ main #home-holder {
   main #home-holder .home-buttons-base {
     height: 4rem;
     width: 90%;
-    margin: 0 auto;
+    margin: 1rem auto 3rem;
     -webkit-align-self: flex-end;
     align-self: flex-end; }
     main #home-holder .home-buttons-base .home-button-base {
@@ -201,5 +216,55 @@ main #home-holder {
   -webkit-align-items: flex-start;
   -webkit-align-items: -webkit-flex-start;
   align-items: flex-start; }
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 1050px) {
+  #nav.visible {
+    width: 100%;
+    display: block; }
+    #nav.visible #nav-items {
+      display: block;
+      background: rgba(255, 255, 255, 0.9);
+      position: fixed;
+      top: 2.45rem;
+      width: 100%; }
+      #nav.visible #nav-items .nav-page-base {
+        border-right: none;
+        display: block;
+        text-align: center;
+        padding: .5rem 0;
+        color: #111;
+        font-weight: 100;
+        transform: translateZ(0) scale(1, 1) skewX(0deg); }
+        #nav.visible #nav-items .nav-page-base:first-of-type {
+          padding-top: 1rem; }
+        #nav.visible #nav-items .nav-page-base:active {
+          background: gray; }
+      #nav.visible #nav-items #social-section {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; }
+        #nav.visible #nav-items #social-section a {
+          display: block;
+          padding: .5rem .5rem 1rem; }
+
+  #nav.hidden #nav-items {
+    display: none; }
+
+  #nav #menu-icon {
+    display: block;
+    position: fixed;
+    top: -.75rem;
+    right: .5rem;
+    font-size: 3rem;
+    padding: 0;
+    margin: 0;
+    color: white;
+    text-decoration: none; }
+    #nav #menu-icon:active {
+      color: gray; } }
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 
 /*# sourceMappingURL=styles.css.map */
