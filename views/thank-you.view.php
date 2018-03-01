@@ -12,14 +12,14 @@
   <?php
     include 'views/navbar.view.php';
   ?>
-  <main role="main" id="error-page">
+  <main role="main">
     <div id="error-bg" class="std-page-bg" >
       <div class="std-holder error-holder-base error-holder-style">
         <div class="heading-holder">
-          <h1>Aw geez</h1>      
+          <h1>Thank you</h1>      
         </div>
         <div id="page-content">
-          <h2 id="error-msg">You tried going to a page that doesn't exist!</h2>      
+          <h2 id="thank-you-msg">Your email has been sent!</h2>      
           <a href="home">Go back home</a>
         </div>
     </div>
@@ -27,7 +27,3 @@
   <script src="js/script.js" charset="utf-8"></script>
 </body>
 </html>
-
-
-
-

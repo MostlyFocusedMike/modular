@@ -42,12 +42,15 @@ $main-b-img: "../images/main-b-img/skyline-bridge.jpg";
 //MAIN  ////////////////////////////////////////////////////////////
 html, body {
   font-family: Helvetica, sans-serif;
+  font-size: 16px;
   margin: 0;
   padding: 0; 
   height: 100%;
+  min-width: 350px;
   background: #222;
   overflow: hidden;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-text-size-adjust: none; // attempt to fix mobil resizing
 }
 main { // takes care of the background image
   background: #222;
@@ -60,9 +63,13 @@ main { // takes care of the background image
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
-  overflow-y: auto;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
   @extend %even-flex;
 }
+
+main::-webkit-scrollbar { width: 0 !important } // hides the scroll bar in chrome and safari
+                                                // while still allowing the mobile touch scroll to work
 
 header {
   width: 100%;
@@ -128,8 +135,7 @@ header {
           padding: 0;
           img {
             display: block;
-            height: 1.5rem;
-            width: 1.5rem;
+            height: 1.25rem;
             margin: 0 .5rem;
             padding: 0;
 
@@ -142,6 +148,7 @@ header {
 #header-buffer {
   height: 2rem;;
 }
+//homepage styles
 main {
   .home-feat-img-base {
     width: 25rem;
@@ -165,21 +172,19 @@ main {
       background: rgba(0,0,0,0.9);
     }
     .home-board-base {
-      -webkit-align-self: flex-start;
-      align-self: flex-start;
       .home-headline-0-base, .home-headline-1-base, .home-subtitle-base, .home-quote-base {
-        font-family: Impact, Helvetica, sans-serif;
+        font-family: Helvetica, sans-serif;
         color: white;
         text-align: center;
         margin: 0;
       }
       .home-headline-0-base {
-        font-size: 5.5rem;
+        font-size: 5rem;
         margin: .5rem auto -.5rem;
       }
       .home-headline-1-base {
-        font-size: 3.6rem;
-        transform: scale(1,1.4);
+        font-size: 3.7rem;
+        margin-top: 0rem;
       }
       .home-subtitle-base, .home-quote-base {
         font-family: Helvetica, sans-serif;
@@ -213,64 +218,224 @@ main {
         font-size: 1rem;
         text-decoration: none;
         border: none;
+        border-radius: none;
         @include grad(#359061,#359061, #184B2F);
+        &:hover {
+          @include grad(#359061,#184B2F,#359061);
+        }
+        &:active {
+          @include grad(#359061,#359061, #184B2F);
+        }
       }
     }
   }
 }
 
+
+//the basic text page layout
 .std-page-bg {
   width: 100%;
-  margin: 4rem 0;
+  max-height: 80%;
+  overflow: auto;
   background: rgba(255,255,255,.9);
   .std-holder {
-    margin: 1rem auto;
+    margin: 0 auto;
     width: 90%;
-    max-width: 50rem;
+    height: 100%;
     padding-bottom: 1rem;
     .heading-holder {
       @extend %compat-flex;
       -webkit-flex-direction: row-reverse;
       flex-direction: row-reverse;
+      margin: 0 auto;
       width: 100%;
+      max-width: 50rem;
       h1 {
         display: block;
         padding: 0 .5rem;
-        font-style: italic;;
+        font-style: italic;
         font-weight: 100;
         color: #111;
         border-bottom: .2rem solid #111;
         span {
           display: inline-block;
+          margin: 0;
         }
       }
     }
-    .para-base {
-      color: #000;
-      font-size: 1.2rem;
-      font-weight: 100;
-      text-align: justify;
+    #page-content {
+      margin: 0 auto 1rem;
+      width: 100%;
+      max-width: 60rem;
+      .sub-head-base {
+        margin: 1.5rem auto .5rem;
+        font-weight: 100;
+        font-style: italic;
+      }
+      .para-base {
+        color: #222;
+        width: 95%;
+        margin: 0 auto 1rem;
+        font-size: 1.2rem;
+        font-weight: 100;
+        text-align: justify;
+      }
+      #error-msg, #thank-you-msg, a {
+        font-weight: 100;
+        text-align: center;
+        width: 100%;    
+        display: block;
+      }
+      h3 {
+        font-weight: 100;
+        text-align: center;
+        a {
+          display: inline;
+        }
+    
+      }
+    }
+  }
+}
+#contact-page {
+  #contact-bg {
+    #contact-holder{
+      #page-content {
+        form {
+          @extend %between-flex;
+          width: 35rem;
+          @media screen and (max-width: 600px) {
+            width: 18.5rem;
+          }
+          margin: 0 auto;
+          div {
+            position: relative;
+            margin: 0rem 1rem;
+            //width: 16.5rem;
+            label, input, textarea{
+              display: block;
+              font-size: 1.2rem;
+            }
+            label {
+              margin: 1rem 0 .3rem;
+            }
+            input {
+              width: 8rem;
+              &:last-of-type {
+                width: 12rem;
+              }
+            }
+            textarea {
+              height: 8rem;
+            }
+          }
+          #submit-button {
+            width: 8rem;
+            margin: 1rem 40% .5rem;
+            height: 2rem;
+            color: white;
+            font-weight: 100;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            @include grad(#359061,#359061, #184B2F);
+              &:hover {
+                @include grad(#359061,#184B2F,#359061);
+              }
+              &:active {
+                @include grad(#359061,#359061, #184B2F);
+              }
+          }
+        }
+        p {
+          margin: 0;
+          font-size: .9rem;
+          font-style: italic;
+          color: #555;
+          text-align: center;
+        }
+        #name-error, #email-error, #comments-error {
+          margin: .5rem 0 0;
+          height: 1rem;
+          color: #ff3333;
+          text-align: left;
+        }
+      }
     }
   }
 }
 
-#about-page {
-padding: 1rem 0;
-  -webkit-align-items: flex-start;
-  -webkit-align-items: -webkit-flex-start;
-  align-items: flex-start;
+
+#faq-page {
+}
+//reviews section
+#reviews-page {
+  width: 100%;
+  #reviews-bg {
+    width: 100%;
+    height: 40rem;
+    overflow: auto;
+    .reviews-holder-base {
+      #page-content {
+        width: 100%;
+        max-width: 100%; // overrides the standard maximum width of pages
+        height: 55rem;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        @media screen and (max-width: 1300px) {
+          height: 90rem;
+        }
+        @media screen and (max-width: 875px) {
+          height: auto !important;
+        }
+        .review-holder {
+          width: 350px;
+          //box-shadow: 0rem .5rem 1rem rgba(0,0,0,.1);
+          background: rgba(255,255,255,0.7);
+          margin: .5rem 0;
+          padding: 1rem;
+          .review-quote {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 100;
+          }
+          .review-author {
+            color: #666;
+            text-align: right;
+            font-style: italic;
+            span {
+
+              display: inline-block;
+            }
+          }
+          .line-holder {
+            margin: .1rem 0 .5rem;
+            @extend %center-flex;
+            hr {
+              width: 40%;
+              background: #AAA;
+            }
+        
+            img {
+              width: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#contact-page {
 
 }
-#faq-page {
-  padding: 1rem 0;
-  -webkit-align-items: flex-start;
-  -webkit-align-items: -webkit-flex-start;
-  align-items: flex-start;
-}
+
+// queries for reviews page
+
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 1050px) {
-  
   #nav.visible { //using the id because you had issues with properly overriding the styles
     width: 100%;
     display: block;

@@ -12,9 +12,43 @@
   <?php
     include 'views/navbar.view.php';
   ?>
-  <main role="main">
-    <div class="about-holder-base about-holder-style">
-      <h1>Reviews</h1>      
+  <main role="main" id="reviews-page">
+    <div class="std-page-bg" id="reviews-bg">
+      <div class="std-holder reviews-holder-base reviews-holder-style">
+        <div class="heading-holder">
+          <h1>Reviews</h1>      
+        </div>
+        <div id="page-content">
+<?php 
+  $reviews = [
+      ['Smart, relatable, and, oh yeah, funny, Anthony Mustacchio is a comic to watch.  And, he didn’t pay me anything for this testimonial... although a Starbucks gift card would have been nice.', 'Paul Lander, Writer/Producer for various projects on NBC, ABC, MTV, <span>VH1, Disney Channel</span>'],
+      ['You look like you jerk off in the park','Jeff Ross'],
+      ['Stop asking me for reviews. Fuck off.','Caitlin Mazur, a comedian'],
+      ['He’s alright.','Jackie Peluso, not a comedian'],
+      ['He’s funny, but not like, haha funny. I mean, he’s definitely amusing, but not enough to make you ever laugh. I don’t know why he thinks he can do stand up. What is he doing with that plug?','Anthony’s recently deceased grandmother, RIP'],
+      ['Anthony Mustacchio is not funny in the slightest.','Mitch Stiller, a former friend'],
+      ['In hindsight, I should\'ve checked to see if he had any positive reviews before I made him a "Reviews Page."','Mike Cronin, the web designer'],
+      ['Hey there, new comedian! Wanna be on a show for me?','Sheba Mason'],
+      ['You are blocked from following @realDonaldTrump and viewing @realDonaldTrump’s tweets.','Donald Trump']
+    ];
+  foreach($reviews as $review) {
+    echo '
+      <div class="review-holder">
+        <p class="review-quote">' . $review[0] . '</p>
+        <p class="review-author">- ' . $review[1] . '</p>
+        <div class="line-holder">
+          <hr />
+          <img src="images/line-pic.png" alt="" />
+          <hr />
+        </div>
+      </div>';
+  }
+?>
+          
+        </div>
+
+
+      </div>
     </div>
   </main>
   <script src="js/script.js" charset="utf-8"></script>

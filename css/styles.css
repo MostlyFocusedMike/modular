@@ -1,4 +1,4 @@
-header nav #nav-items #social-section, main #home-holder, header, header nav #nav-items, main, main #home-holder .home-buttons-base, .std-page-bg .std-holder .heading-holder {
+header nav #nav-items #social-section, main #home-holder, #reviews-page #reviews-bg .reviews-holder-base #page-content .review-holder .line-holder, header, #contact-page #contact-bg #contact-holder #page-content form, header nav #nav-items, main, main #home-holder .home-buttons-base, .std-page-bg .std-holder .heading-holder {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -6,11 +6,11 @@ header nav #nav-items #social-section, main #home-holder, header, header nav #na
   -webkit-align-items: center;
   align-items: center; }
 
-header nav #nav-items #social-section, main #home-holder {
+header nav #nav-items #social-section, main #home-holder, #reviews-page #reviews-bg .reviews-holder-base #page-content .review-holder .line-holder {
   -webkit-justify-content: center;
   justify-content: center; }
 
-header {
+header, #contact-page #contact-bg #contact-holder #page-content form {
   -webkit-justify-content: space-between;
   justify-content: space-between; }
 
@@ -24,12 +24,15 @@ main, main #home-holder .home-buttons-base {
 
 html, body {
   font-family: Helvetica, sans-serif;
+  font-size: 16px;
   margin: 0;
   padding: 0;
   height: 100%;
+  min-width: 350px;
   background: #222;
   overflow: hidden;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: none; }
 
 main {
   background: #222;
@@ -42,7 +45,12 @@ main {
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
-  overflow-y: auto; }
+  overflow-y: scroll;
+  /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch; }
+
+main::-webkit-scrollbar {
+  width: 0 !important; }
 
 header {
   width: 100%;
@@ -102,8 +110,7 @@ header {
         padding: 0; }
         header nav #nav-items #social-section a img {
           display: block;
-          height: 1.5rem;
-          width: 1.5rem;
+          height: 1.25rem;
           margin: 0 .5rem;
           padding: 0; }
 
@@ -127,33 +134,30 @@ main #home-holder {
     width: 100%;
     background: #111;
     background: rgba(0, 0, 0, 0.9); }
-  main #home-holder .home-board-base {
-    -webkit-align-self: flex-start;
-    align-self: flex-start; }
-    main #home-holder .home-board-base .home-headline-0-base, main #home-holder .home-board-base .home-headline-1-base, main #home-holder .home-board-base .home-subtitle-base, main #home-holder .home-board-base .home-quote-base {
-      font-family: Impact, Helvetica, sans-serif;
-      color: white;
-      text-align: center;
-      margin: 0; }
-    main #home-holder .home-board-base .home-headline-0-base {
-      font-size: 5.5rem;
-      margin: .5rem auto -.5rem; }
-    main #home-holder .home-board-base .home-headline-1-base {
-      font-size: 3.6rem;
-      transform: scale(1, 1.4); }
-    main #home-holder .home-board-base .home-subtitle-base, main #home-holder .home-board-base .home-quote-base {
-      font-family: Helvetica, sans-serif;
-      font-size: 2.25rem;
-      font-style: italic;
-      font-weight: 100;
-      margin: 1rem 0; }
-    main #home-holder .home-board-base .home-quote-base {
-      font-weight: 100;
-      font-size: 1.5rem;
-      width: 80%;
-      margin: 1rem auto; }
-    main #home-holder .home-board-base hr {
-      width: 85%; }
+  main #home-holder .home-board-base .home-headline-0-base, main #home-holder .home-board-base .home-headline-1-base, main #home-holder .home-board-base .home-subtitle-base, main #home-holder .home-board-base .home-quote-base {
+    font-family: Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    margin: 0; }
+  main #home-holder .home-board-base .home-headline-0-base {
+    font-size: 5rem;
+    margin: .5rem auto -.5rem; }
+  main #home-holder .home-board-base .home-headline-1-base {
+    font-size: 3.7rem;
+    margin-top: 0rem; }
+  main #home-holder .home-board-base .home-subtitle-base, main #home-holder .home-board-base .home-quote-base {
+    font-family: Helvetica, sans-serif;
+    font-size: 2.25rem;
+    font-style: italic;
+    font-weight: 100;
+    margin: 1rem 0; }
+  main #home-holder .home-board-base .home-quote-base {
+    font-weight: 100;
+    font-size: 1.5rem;
+    width: 80%;
+    margin: 1rem auto; }
+  main #home-holder .home-board-base hr {
+    width: 85%; }
   main #home-holder .home-buttons-base {
     height: 4rem;
     width: 90%;
@@ -168,6 +172,7 @@ main #home-holder {
       font-size: 1rem;
       text-decoration: none;
       border: none;
+      border-radius: none;
       background: #359061;
       /* For browsers that do not support gradients */
       background: -webkit-linear-gradient(#359061, #184B2F);
@@ -176,20 +181,41 @@ main #home-holder {
       /* For Opera 11.1 to 12.0 */
       background: -moz-linear-gradient(#359061, #184B2F);
       background: linear-gradient(#359061, #184B2F); }
+      main #home-holder .home-buttons-base .home-button-base:hover {
+        background: #359061;
+        /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#184B2F, #359061);
+        /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#184B2F, #359061);
+        /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#184B2F, #359061);
+        background: linear-gradient(#184B2F, #359061); }
+      main #home-holder .home-buttons-base .home-button-base:active {
+        background: #359061;
+        /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#359061, #184B2F);
+        /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#359061, #184B2F);
+        /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#359061, #184B2F);
+        background: linear-gradient(#359061, #184B2F); }
 
 .std-page-bg {
   width: 100%;
-  margin: 4rem 0;
+  max-height: 80%;
+  overflow: auto;
   background: rgba(255, 255, 255, 0.9); }
   .std-page-bg .std-holder {
-    margin: 1rem auto;
+    margin: 0 auto;
     width: 90%;
-    max-width: 50rem;
+    height: 100%;
     padding-bottom: 1rem; }
     .std-page-bg .std-holder .heading-holder {
       -webkit-flex-direction: row-reverse;
       flex-direction: row-reverse;
-      width: 100%; }
+      margin: 0 auto;
+      width: 100%;
+      max-width: 50rem; }
       .std-page-bg .std-holder .heading-holder h1 {
         display: block;
         padding: 0 .5rem;
@@ -198,24 +224,143 @@ main #home-holder {
         color: #111;
         border-bottom: .2rem solid #111; }
         .std-page-bg .std-holder .heading-holder h1 span {
-          display: inline-block; }
-    .std-page-bg .std-holder .para-base {
-      color: #000;
-      font-size: 1.2rem;
-      font-weight: 100;
-      text-align: justify; }
+          display: inline-block;
+          margin: 0; }
+    .std-page-bg .std-holder #page-content {
+      margin: 0 auto 1rem;
+      width: 100%;
+      max-width: 60rem; }
+      .std-page-bg .std-holder #page-content .sub-head-base {
+        margin: 1.5rem auto .5rem;
+        font-weight: 100;
+        font-style: italic; }
+      .std-page-bg .std-holder #page-content .para-base {
+        color: #222;
+        width: 95%;
+        margin: 0 auto 1rem;
+        font-size: 1.2rem;
+        font-weight: 100;
+        text-align: justify; }
+      .std-page-bg .std-holder #page-content #error-msg, .std-page-bg .std-holder #page-content #thank-you-msg, .std-page-bg .std-holder #page-content a {
+        font-weight: 100;
+        text-align: center;
+        width: 100%;
+        display: block; }
+      .std-page-bg .std-holder #page-content h3 {
+        font-weight: 100;
+        text-align: center; }
+        .std-page-bg .std-holder #page-content h3 a {
+          display: inline; }
 
-#about-page {
-  padding: 1rem 0;
-  -webkit-align-items: flex-start;
-  -webkit-align-items: -webkit-flex-start;
-  align-items: flex-start; }
+#contact-page #contact-bg #contact-holder #page-content form {
+  width: 35rem;
+  margin: 0 auto; }
+  @media screen and (max-width: 600px) {
+    #contact-page #contact-bg #contact-holder #page-content form {
+      width: 18.5rem; } }
+  #contact-page #contact-bg #contact-holder #page-content form div {
+    position: relative;
+    margin: 0rem 1rem; }
+    #contact-page #contact-bg #contact-holder #page-content form div label, #contact-page #contact-bg #contact-holder #page-content form div input, #contact-page #contact-bg #contact-holder #page-content form div textarea {
+      display: block;
+      font-size: 1.2rem; }
+    #contact-page #contact-bg #contact-holder #page-content form div label {
+      margin: 1rem 0 .3rem; }
+    #contact-page #contact-bg #contact-holder #page-content form div input {
+      width: 8rem; }
+      #contact-page #contact-bg #contact-holder #page-content form div input:last-of-type {
+        width: 12rem; }
+    #contact-page #contact-bg #contact-holder #page-content form div textarea {
+      height: 8rem; }
+  #contact-page #contact-bg #contact-holder #page-content form #submit-button {
+    width: 8rem;
+    margin: 1rem 40% .5rem;
+    height: 2rem;
+    color: white;
+    font-weight: 100;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    background: #359061;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#359061, #184B2F);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#359061, #184B2F);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#359061, #184B2F);
+    background: linear-gradient(#359061, #184B2F); }
+    #contact-page #contact-bg #contact-holder #page-content form #submit-button:hover {
+      background: #359061;
+      /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(#184B2F, #359061);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(#184B2F, #359061);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(#184B2F, #359061);
+      background: linear-gradient(#184B2F, #359061); }
+    #contact-page #contact-bg #contact-holder #page-content form #submit-button:active {
+      background: #359061;
+      /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(#359061, #184B2F);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(#359061, #184B2F);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(#359061, #184B2F);
+      background: linear-gradient(#359061, #184B2F); }
+#contact-page #contact-bg #contact-holder #page-content p {
+  margin: 0;
+  font-size: .9rem;
+  font-style: italic;
+  color: #555;
+  text-align: center; }
+#contact-page #contact-bg #contact-holder #page-content #name-error, #contact-page #contact-bg #contact-holder #page-content #email-error, #contact-page #contact-bg #contact-holder #page-content #comments-error {
+  margin: .5rem 0 0;
+  height: 1rem;
+  color: #ff3333;
+  text-align: left; }
 
-#faq-page {
-  padding: 1rem 0;
-  -webkit-align-items: flex-start;
-  -webkit-align-items: -webkit-flex-start;
-  align-items: flex-start; }
+#reviews-page {
+  width: 100%; }
+  #reviews-page #reviews-bg {
+    width: 100%;
+    height: 40rem;
+    overflow: auto; }
+    #reviews-page #reviews-bg .reviews-holder-base #page-content {
+      width: 100%;
+      max-width: 100%;
+      height: 55rem;
+      margin: 0 auto;
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center; }
+      @media screen and (max-width: 1300px) {
+        #reviews-page #reviews-bg .reviews-holder-base #page-content {
+          height: 90rem; } }
+      @media screen and (max-width: 875px) {
+        #reviews-page #reviews-bg .reviews-holder-base #page-content {
+          height: auto !important; } }
+      #reviews-page #reviews-bg .reviews-holder-base #page-content .review-holder {
+        width: 350px;
+        background: rgba(255, 255, 255, 0.7);
+        margin: .5rem 0;
+        padding: 1rem; }
+        #reviews-page #reviews-bg .reviews-holder-base #page-content .review-holder .review-quote {
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: 100; }
+        #reviews-page #reviews-bg .reviews-holder-base #page-content .review-holder .review-author {
+          color: #666;
+          text-align: right;
+          font-style: italic; }
+          #reviews-page #reviews-bg .reviews-holder-base #page-content .review-holder .review-author span {
+            display: inline-block; }
+        #reviews-page #reviews-bg .reviews-holder-base #page-content .review-holder .line-holder {
+          margin: .1rem 0 .5rem; }
+          #reviews-page #reviews-bg .reviews-holder-base #page-content .review-holder .line-holder hr {
+            width: 40%;
+            background: #AAA; }
+          #reviews-page #reviews-bg .reviews-holder-base #page-content .review-holder .line-holder img {
+            width: 2rem; }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 1050px) {

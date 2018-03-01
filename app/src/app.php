@@ -1,7 +1,7 @@
 <?php
 class nav_bar {
-  protected $nav_pages = array('home','about','reviews','FAQ','sets','pics','contact');
-  protected $nav_logos = array("twitter"=>"https://twitter.com", "fb"=>"https://facebook.com");
+  protected $nav_pages = array('home','about','reviews','FAQ','contact');
+  protected $nav_logos = array("twitter"=>"https://twitter.com/anthonymustache", "fb"=>"https://www.facebook.com/AnthonyMustacchioComedyWhatElseWouldICallIt/");
   protected $site_title = 'Anthony Mustachio Comedy';
   protected $title_before = true; // does the title come before or after the nav
   function setNavBar(){
@@ -21,7 +21,7 @@ class nav_bar {
     echo '<div id="social-section">';
     foreach($this->nav_logos as $nav_logo=>$logo_link) {
       echo '
-        <a href="' . $logo_link . '" class="nav-logo-base nav-logo-style">
+        <a href="' . $logo_link . '" class="nav-logo-base nav-logo-style" target="_blank">
           <img src="images/soc-logos/' . $nav_logo . '.png" alt="' . $nav_logo . '" />
         </a>';
     }
@@ -34,10 +34,10 @@ class nav_bar {
 class homepage {
   protected $site_owner = 'Anthony Mustacchio'; 
   // Homepage variables 
-  protected $headline_names = array('Anthony', 'MUSTACCHIO');
+  protected $headline_names = array('Anthony', 'Mustacchio');
   protected $subtitle = 'Stand Up Comic';
-  protected $main_quote = 'Yes, that is my real name, its on my drivers license';
-  protected $buttons = array('sets','contact');
+  protected $main_quote = 'Yes, that is my real name, it\'s on my drivers license';
+  protected $buttons = array('about','contact');
   // add this to the button loop if the button values are different than the pages
   protected $button_msgs = array(''); 
   function set_headline_section() {
@@ -118,13 +118,15 @@ class basic_page {
   }
   function show_page(){
     echo '
-      <div class="' . $this->page_type . '-bg std-page-bg">
+      <div id="' . $this->page_type .'-bg" class="std-page-bg">
         <div class="std-holder ' . $this->page_type . '-holder-base ' . $this->page_type . '-holder-style">
           <div class="heading-holder">
             <h1>' . $this->page_title . '</h1>      
-          </div>'
+          </div>
+          <div id="page-content">'
           . $this->main_text . 
-        '</div>
+          '</div>
+        </div>
       </div>';
   }
 }

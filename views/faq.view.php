@@ -14,7 +14,7 @@
   ?>
   <main role="main" id="faq-page">
     <?php
-      $about_page = new basic_page('faq','Frequently Asked Questions');
+      $about_page = new basic_page('faq','FAQ');
       $about_page->set_main_text_sub_head(array(
         //['sub heading','paragraph']
         ['Is Mustacchio really your last name?', 'Yes'],
@@ -37,7 +37,7 @@
         'I\'m just ignoring this question now. '],
         ['Who are your favorite comedians?',
         'If we’re talking just stand up, my favorites are Jeff Ross, Anthony Jeselnik, Jim Jeffries, Mitch Hedberg, George Carlin, Norm Macdonald, Richard Jeni, and Joan Rivers. Beyond stand up, my biggest comedy hero is Groucho Marx, and I love writers like David Thorne and David Sedaris. '],
-        ['no, really. what\'s your last name?',
+        ['No, really. what\'s your last name?',
         ''],
         ['C\'mon, seriously.',
         ''],
