@@ -14,7 +14,7 @@ $router->define([
   'contact' => 'controllers/contact.php',
   'contact?' => 'controllers/contact.php',
   'thank-you' => 'controllers/thank-you.php',
-  '404' => 'controllers/404.php'
+  'wrong-turn' => 'controllers/wrong-turn.php'
 ]);
 
 

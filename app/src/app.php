@@ -2,7 +2,7 @@
 class nav_bar {
   protected $nav_pages = array('home','about','reviews','FAQ','contact');
   protected $nav_logos = array("twitter"=>"https://twitter.com/anthonymustache", "fb"=>"https://www.facebook.com/AnthonyMustacchioComedyWhatElseWouldICallIt/");
-  protected $site_title = 'Anthony Mustachio Comedy';
+  protected $site_title = 'Anthony Mustacchio Comedy';
   protected $title_before = true; // does the title come before or after the nav
   function setNavBar(){
     // builds the navigation menu and title into the header 
@@ -116,6 +116,20 @@ class basic_page {
         '</p>';
     }
   }
+  function set_reviews($reviews){
+    foreach($reviews as $review) {
+      $this->main_text .= '
+       <div class="review-holder">
+         <p class="review-quote">' . $review[0] . '</p>
+        <p class="review-author">- ' . $review[1] . '</p>
+        <div class="line-holder">
+          <hr />
+          <img src="images/line-pic.png" alt="" />
+          <hr />
+        </div>
+      </div>';
+    }
+  }
   function show_page(){
     echo '
       <div id="' . $this->page_type .'-bg" class="std-page-bg">
@@ -130,6 +144,5 @@ class basic_page {
       </div>';
   }
 }
-
 ?>
 

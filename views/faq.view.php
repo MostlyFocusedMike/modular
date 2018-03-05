@@ -14,8 +14,8 @@
   ?>
   <main role="main" id="faq-page">
     <?php
-      $about_page = new basic_page('faq','FAQ');
-      $about_page->set_main_text_sub_head(array(
+      $faq_page = new basic_page('faq','FAQ');
+      $faq_page->set_main_text_sub_head(array(
         //['sub heading','paragraph']
         ['Is Mustacchio really your last name?', 'Yes'],
         ['Really?','Yes, really.'],
@@ -46,7 +46,7 @@
         ['Hello?',
         ''],
       ));
-      $about_page->show_page();
+      $faq_page->show_page();
     ?>
   </main>
   <script src="js/script.js" charset="utf-8"></script>
