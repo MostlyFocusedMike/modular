@@ -17,7 +17,6 @@
   $reviews = array(
       ['Smart, relatable, and, oh yeah, funny, Anthony Mustacchio is a comic to watch.  And, he didn’t pay me anything for this testimonial... although a Starbucks gift card would have been nice.', 'Paul Lander, Writer/Producer for various projects on NBC, ABC, MTV, <span>VH1, Disney Channel</span>'],
       ['You look like you jerk off in the park','Jeff Ross'],
-      ['Stop asking me for reviews. Fuck off.','Caitlin Mazur, a comedian'],
       ['He’s alright.','Jackie Peluso, not a comedian'],
       ['He’s funny, but not like, haha funny. I mean, he’s definitely amusing, but not enough to make you ever laugh. I don’t know why he thinks he can do stand up. What is he doing with that plug?','Anthony’s recently deceased grandmother, RIP'],
       ['Anthony Mustacchio is not funny in the slightest.','Mitch Stiller, a former friend'],

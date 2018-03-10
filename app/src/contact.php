@@ -2,7 +2,7 @@
 if(isset($_POST['email'])) {
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "mikecronin@sbcglobal.net";
+    $email_to = "amustacchio92@gmail.com";
     $email_subject = "New message from your site!";
 
     // if the inputs are wrong, this message prints 
@@ -20,7 +20,7 @@ if(isset($_POST['email'])) {
         die('We are sorry, there appears to be a problem with the form you submitted. Please hit your browser\'s back button to try again.');             
     }
  
-    $first_name = $_POST['name'] ; // required
+    $name = $_POST['name'] ; // required
     $email_from = $_POST['email']; // required
     $comments = $_POST['comments']; // required
     
@@ -36,7 +36,7 @@ if(isset($_POST['email'])) {
 
     $name_issue = false; 
     $string_exp = "/^[A-Za-z .'-]+$/";
-    if(!preg_match($string_exp,$first_name)) {
+    if(!preg_match($string_exp,$name)) {
       if ($email_issue) {
         $error_message .= ', '; // if the error message already starts with email, add this
       }
@@ -67,9 +67,8 @@ if(isset($_POST['email'])) {
     }
  
      
-    $email_message = 'Here\'s your message:\n';
-    $email_message .= "First Name: ".clean_string($first_name)."\n";
-    $email_message .= "Last Name: ".clean_string($last_name)."\n";
+    $email_message = 'Here\'s your message:' . "\n";
+    $email_message .= "Name: ".clean_string($name)."\n";
     $email_message .= "Email: ".clean_string($email_from)."\n";
     $email_message .= "Comments: ".clean_string($comments)."\n";
  

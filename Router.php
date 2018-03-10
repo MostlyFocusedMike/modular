@@ -3,6 +3,15 @@
 class Router {
   protected $routes = array();
   
+  public static function load($file) {
+
+    $router = new static;
+    require $file;
+
+    // return the instance so you can chain this method
+    return $router;
+  }
+ 
   public function define($routes) {
     $this->routes = $routes; 
   }

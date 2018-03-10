@@ -379,13 +379,13 @@ main {
       #page-content {
         width: 100%;
         max-width: 100%; // overrides the standard maximum width of pages
-        height: 55rem;
+        height: 50rem;
         margin: 0 auto;
         display: flex;
         flex-flow: column wrap;
         align-items: center;
         @media screen and (max-width: 1300px) {
-          height: 90rem;
+          height: 76rem;
         }
         @media screen and (max-width: 875px) {
           height: auto !important;

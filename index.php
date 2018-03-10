@@ -5,10 +5,9 @@
 require 'Router.php';
 $router = new Router;
 
-require 'routes.php';
-$uri = trim($_SERVER['REQUEST_URI'], '/');
-//echo '<h1>' . $_SERVER['REQUEST_URI'] . '</h1>';
-//echo $_SERVER["DOCUMENT_ROOT"];
-require $router->direct($uri);
+$uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');
+
+require Router::load('routes.php')->direct($uri);
+
 
 ?>
